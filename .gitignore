@@ -6,3 +6,5 @@ public/*
 
 # exception to the rule
 !public/.gitkeep
+!public/index.html
+!public/json.json
