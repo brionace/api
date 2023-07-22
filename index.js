@@ -1,12 +1,10 @@
 const fs = require("fs");
 const fsPromises = fs.promises;
 const express = require("express");
-const cors = require("cors");
-const _ = require("lodash");
 const app = express();
-const port = 3000;
-const work = require("./routes/work");
+const port = process.env.PORT || 3000;
 const path = require("path");
+
 const source = "nextjs";
 const basePath = "/" + generateUUIDLowerCase();
 const destination = "public" + basePath;
@@ -24,16 +22,6 @@ app.post("/", async (req, res) => {
   const installDependencies = await installDeps();
   console.log({ makeDirectories, installDependencies });
 });
-
-// app.use("/work", work);
-// app.use("/create-work", work);
-// /* Error handler middleware */
-// app.use((err, req, res, next) => {
-//   const statusCode = err.statusCode || 500;
-//   console.error(err.message, err.stack);
-//   res.status(statusCode).json({ message: err.message });
-//   return;
-// });
 
 app.listen(port, () =>
   console.log(`API Server is running... http://localhost:${port}`)
