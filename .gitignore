@@ -1,0 +1,8 @@
+# exclude
+/node_modules
+/nextjs
+/themes
+public/*
+
+# exception to the rule
+!public/.gitkeep
